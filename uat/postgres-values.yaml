@@ -1,0 +1,21 @@
+auth:
+  username: postgres
+  password: qwerty@123
+  postgresPassword: adminqwerty@123456
+
+primary:
+  resources:
+    requests:
+      memory: 512Mi
+      cpu: 500m
+    limits:
+      memory: 1Gi
+      cpu: 1
+
+persistence:
+  enabled: true
+  size: 10Gi
+  storageClass: standard
+
+metrics:
+  enabled: false

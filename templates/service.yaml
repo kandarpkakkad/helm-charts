@@ -1,0 +1,17 @@
+{{- $env := .Values.environment }}
+{{- if .Values.enabled }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Values.serviceName }}
+  namespace: {{ $env | default "local"}}
+  labels:
+    app: {{ .Values.serviceName }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: {{ .Values.service.targetPort }}
+  selector:
+    app: {{ .Values.serviceName }}
+{{- end }}

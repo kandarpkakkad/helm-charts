@@ -1,0 +1,32 @@
+environment: prod
+serviceName: user-service
+enabled: true
+replicaCount: 2
+image:
+  repository: kandarpbkakkad/user-service
+  tag: "stable"
+  pullPolicy: Always
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 7000
+resources:
+  requests:
+    memory: "128Mi"
+    cpu: "250m"
+  limits:
+    memory: "256Mi"
+    cpu: "500m"
+env:
+  - name: PG_USERNAME
+    value: "my_prod_user"
+  - name: PG_PASSWORD
+    value: "qwerty@123"
+  - name: PG_HOST
+    value: "postgres-postgresql"
+  - name: PG_PORT
+    value: "5432"
+  - name: PG_DB
+    value: "test_db_prod"
+  - name: FILE_PATH
+    value: "./src/server.js"

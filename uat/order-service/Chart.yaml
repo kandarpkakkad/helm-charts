@@ -1,0 +1,5 @@
+apiVersion: v2
+name: order-service-uat
+description: A helm chart for order service uat
+version: 1.0.0
+appVersion: "1.0.0"
